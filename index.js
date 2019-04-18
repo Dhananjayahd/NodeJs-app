@@ -22,6 +22,10 @@ mongoose
 })
 .catch(err => console.log(err))
 
+app.get('/',(req,res)=>{
+    res.redirect('/signup')
+})
+
 app.get('/signin',(req,res)=>{
     res.render('login')
 })

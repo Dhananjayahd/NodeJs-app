@@ -3,8 +3,10 @@ const mongoose = require('mongoose')
 const app = express()
 const router = express.Router()
 const bcrypt = require('bcryptjs')
+const path=require('path')
 
 const person = require('../../models/user')
+
 
 //@type         post
 //@route        api/auth/registraton
@@ -27,7 +29,7 @@ router.post('/register',(req,res)=>{
                 if(err) throw err
                 newuser.password=hash
                 newuser.save()
-                .then(Person=>res.json(newuser))
+                .then(person=>res.redirect('/signin'))
                 .catch(err => console.log(err))
             });
         });
