@@ -6,14 +6,15 @@ const userschema =new schema({
         type : String,
         default:true
     },
+   
+    password:{
+        type:String,
+        default:true
+    },
     email:{
         type:String,
         default:true
     },
-    password:{
-        type:String,
-        default:true
-    }
 })
 
 module.exports = person = mongoose.model("registration",userschema)

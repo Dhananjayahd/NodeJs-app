@@ -16,8 +16,8 @@ router.post('/register',(req,res)=>{
     person.findOne({email:req.body.email})
     .then(personfind=>{
         if(personfind){
-            res.status(400).json({emailerror:'user as already registered'})
-        }
+            res.status(400).json({emailerror:'user as already registered'})   
+        } 
         else{
             const newuser =new person({
                 user:req.body.user,
@@ -36,7 +36,7 @@ router.post('/register',(req,res)=>{
     }
  }).catch(err=>console.log(err))
 })
- //@type         post
+ //@type         post 
 //@route        api/auth/login
 //des           for login
 //access         public
@@ -51,7 +51,7 @@ router.post('/register',(req,res)=>{
          bcrypt.compare(password,userfind.password)
          .then(compared =>{
              if(compared){
-                 res.json({msg:"user has succesfully loggedin"})
+                res.json({msg:"user successfully logedin"})
              }
              else{
                  res.json({msg:"password incorrect"})
@@ -63,4 +63,5 @@ router.post('/register',(req,res)=>{
  })
 
 
-module.exports=router
+
+module.exports=router                     
